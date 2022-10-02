@@ -7,7 +7,7 @@ def generate(button_resp, user_input, form):
         if user_input == "":
             st.write("Please write down something to find your destination!")
         else:
-            cohere_resp = get_destination(user_input)
+            cohere_resp = get_destination(st.secrets['cohere_api'], user_input)
             sorted_conf = cohere_resp.confidence
             sort_confidence(sorted_conf)
             with form:
